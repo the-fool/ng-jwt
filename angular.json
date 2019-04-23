@@ -129,6 +129,41 @@
           }
         }
       }
+    },
+    "token": {
+      "root": "projects/token",
+      "sourceRoot": "projects/token/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/token/tsconfig.lib.json",
+            "project": "projects/token/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/token/src/test.ts",
+            "tsConfig": "projects/token/tsconfig.spec.json",
+            "karmaConfig": "projects/token/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/token/tsconfig.lib.json",
+              "projects/token/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "wauth-token"
